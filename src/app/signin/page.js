@@ -7,7 +7,6 @@ import { FirebaseApp } from "firebase/app";
 
 
 function Page() {
-    console.log()
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const router = useRouter()
