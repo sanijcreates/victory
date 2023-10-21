@@ -1,10 +1,13 @@
 'use client'
 import React from "react";
 import { useRouter } from 'next/navigation'
-import { signInWithEmailAndPassword} from "firebase/auth";
+import { signInWithEmailAndPassword,setPersistence,browserSessionPersistence} from "firebase/auth";
 import {auth} from "../../../firebase";
+import { FirebaseApp } from "firebase/app";
+
 
 function Page() {
+    console.log()
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const router = useRouter()
@@ -13,7 +16,13 @@ function Page() {
         event.preventDefault()
         signInWithEmailAndPassword(auth,email,password).then((userCredential)=>{
             const user=userCredential.user;
-            console.log(user);
+            setPersistence(auth,browserSessionPersistence).then(()=>{
+                console.log("Successfully Logged In!")
+                router.push("/")
+            }).catch(err=>{
+                console.log("Error Setting Persistence",error)
+            })
+
 
             //redirect to homepage after this
             //To-do code to implement
