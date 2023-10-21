@@ -8,11 +8,18 @@ const Profile = (params) => {
     gender: '',
     height: '',
     weight: '',
+    ingredients: '',
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const handleIngredientChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, ingredients: value });
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -96,6 +103,19 @@ const Profile = (params) => {
               onChange={handleChange}
               className="w-full p-2 border rounded-md"
               required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="ingredients" className="block text-sm font-semibold text-gray-600">
+              Available Ingredients for Healthy Diet (comma-separated):
+            </label>
+            <input
+              type="text"
+              id="ingredients"
+              name="ingredients"
+              value={formData.ingredients}
+              onChange={handleIngredientChange}
+              className="w-full p-2 border rounded-md"
             />
           </div>
           <div className="mb-4">
