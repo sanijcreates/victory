@@ -1,9 +1,10 @@
 'use client'
 import React, { useState } from 'react';
-
+import { useRouter } from 'next/navigation';
+import { addDoc, collection } from "firebase/firestore";
+import { db } from '../../../../firebase';
 const Profile = (params) => {
   const user_uid=params.params.uid
-  const router=useRouter();
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -30,7 +31,7 @@ const Profile = (params) => {
     try {
       // Add data to Firestore
       const docRef=await addDoc(collection(db,user_uid),formData)
-      router.replace("/")
+      router.replace(`/HealthData/${user_uid}`)
     } catch (error) {
       console.error('Error adding data to Firestore:', error);
     }
