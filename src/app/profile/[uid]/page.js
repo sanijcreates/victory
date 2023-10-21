@@ -24,9 +24,6 @@ const Profile = (params) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     router.push(`/HealthData/${uid}`)
-
-
     // You can handle form submission here, e.g., save data to a database.
     console.log('Form submitted:', formData);
   };
