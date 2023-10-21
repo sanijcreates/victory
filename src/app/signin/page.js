@@ -17,15 +17,11 @@ function Page() {
             const user=userCredential.user;
             setPersistence(auth,browserSessionPersistence).then(()=>{
                 console.log("Successfully Logged In!")
-                router.push("/")
+                const uid = user.uid
+                router.push(`/profile/${uid}`)   
             }).catch(err=>{
                 console.log("Error Setting Persistence",error)
             })
-
-
-            //redirect to homepage after this
-            //To-do code to implement
-            
         }).catch((error)=>{
             const errorCode=error.code;
             console.log(errorCode)
