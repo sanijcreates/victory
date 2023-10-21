@@ -1,6 +1,8 @@
 'use client'
 import React from "react";
 import { useRouter } from 'next/navigation'
+import { signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../../firebase";
 
 function Page() {
     const [email, setEmail] = React.useState('')
@@ -9,6 +11,17 @@ function Page() {
 
     const handleForm = async (event) => {
         event.preventDefault()
+        signInWithEmailAndPassword(auth,email,password).then((userCredential)=>{
+            const user=userCredential.user;
+            console.log(user);
+
+            //redirect to homepage after this
+            //To-do code to implement
+            
+        }).catch((error)=>{
+            const errorCode=error.code;
+            console.log(errorCode)
+        })
 
         
     }
@@ -26,7 +39,7 @@ function Page() {
                     name="email"
                     id="email"
                     placeholder="example@mail.com"
-                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200"
+                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200 text-black"
                 />
             </div>
             <div className="mb-4">
@@ -38,7 +51,7 @@ function Page() {
                     name="password"
                     id="password"
                     placeholder="password"
-                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200"
+                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200 text-black"
                 />
             </div>
             <button type="submit" className="w-full bg-blue-500 text-white font-bold p-2 rounded-md hover:bg-blue-600">
