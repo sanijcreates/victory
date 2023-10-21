@@ -1,15 +1,28 @@
 'use client'
-import React from "react";
+import React,{useState} from "react";
 import { useRouter } from 'next/navigation'
+import { createUserWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../../firebase";
 
 function Page() {
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
-    const [confirmPassword, setConfirmPassword] = React.useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('Lol')
+    const [confirmPassword, setConfirmPassword] = useState('');
     const router = useRouter()
-
+    
     const handleForm = async (event) => {
         event.preventDefault()
+        
+        createUserWithEmailAndPassword(auth,email,password).then((userCredential)=>{
+            const user=userCredential.user;
+            console.log("SignUp Successfully!")
+            //redirect to profile page
+            //To Do code
+        }).catch(err=>{
+            console.log(err)
+            const errorCode=err.code;
+            const errorMessage=err.message;
+        })
         
     }
     return (// Inside your sign-up component
@@ -26,19 +39,18 @@ function Page() {
                     name="email"
                     id="email"
                     placeholder="example@mail.com"
-                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200"
+                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200 text-black"
                 />
             </div>
             <div className="mb-4">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-600">Password</label>
                 <input
-                    onChange={(e) => setPassword(e.target.value)}
+                     onChange={(e) => setPassword(e.target.value)}     
                     required
                     type="password"
                     name="password"
-                    id="password"
                     placeholder="password"
-                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200"
+                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200 text-black"
                 />
             </div>
             <div className="mb-4">
@@ -47,10 +59,9 @@ function Page() {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                     type="password"
-                    name="password"
-                    id="password"
+                    name="password1"
                     placeholder="password"
-                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200"
+                    className="w-full p-2 border rounded-md focus:ring focus:ring-blue-200 text-black"
                 />
             </div>
             <button type="submit" className="w-full bg-blue-500 text-white font-bold p-2 rounded-md hover:bg-blue-600">
