@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tryterra/terra-ui": "^0.1.0",
+    "axios": "^1.5.1",
     "firebase": "^10.5.0",
     "firebase-admin": "^11.11.0",
     "next": "13.5.6",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "terra-api": "^1.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^10",
