@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 
-const Profile = () => {
+const Profile = (params) => {
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -9,7 +9,6 @@ const Profile = () => {
     height: '',
     weight: '',
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -24,7 +23,7 @@ const Profile = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white p-6 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-4">User Profile</h2>
+        <h2 className="text-2xl font-bold mb-4">User Profile : {params.uid}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-semibold text-gray-600">

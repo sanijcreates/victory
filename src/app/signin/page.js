@@ -13,11 +13,8 @@ function Page() {
         event.preventDefault()
         signInWithEmailAndPassword(auth,email,password).then((userCredential)=>{
             const user=userCredential.user;
-            console.log(user);
-
-            //redirect to homepage after this
-            //To-do code to implement
-            
+            const uid = user.uid
+            router.push(`/profile/${uid}`)           
         }).catch((error)=>{
             const errorCode=error.code;
             console.log(errorCode)

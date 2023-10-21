@@ -10,20 +10,23 @@ function Page() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const router = useRouter()
     
-    const handleForm = async (event) => {
-        event.preventDefault()
-        
-        createUserWithEmailAndPassword(auth,email,password).then((userCredential)=>{
-            const user=userCredential.user;
-            console.log("SignUp Successfully!")
-            //redirect to profile page
-            //To Do code
-        }).catch(err=>{
-            console.log(err)
-            const errorCode=err.code;
-            const errorMessage=err.message;
-        })
-        
+    const handleForm = async (event) => {   
+        if(password !== confirmPassword) {
+            console.log("Signup Unsuccesful, password and confirm Password doesn't match!")
+            setPassword('');
+            setConfirmPassword('');
+            console.log(password)
+        } else {
+            event.preventDefault()
+            createUserWithEmailAndPassword(auth,email,password).then((userCredential)=>{
+                const user=userCredential.user;
+                    console.log("SignUp Successfully!")
+            }).catch(err=>{
+                console.log(err)
+                const errorCode=err.code;
+                const errorMessage=err.message;
+            })
+        }        
     }
     return (// Inside your sign-up component
     <div className="flex justify-center items-center h-screen">
