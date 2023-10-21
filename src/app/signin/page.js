@@ -26,8 +26,6 @@ function Page() {
             const errorCode=error.code;
             console.log(errorCode)
         })
-
-        
     }
     return (
     <div className="flex justify-center items-center h-screen">

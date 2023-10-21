@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import { useParams, useRouter } from 'next/navigation'
 
 const Profile = (params) => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Profile = (params) => {
     weight: '',
     ingredients: '',
   });
+  const router = useRouter()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -20,9 +22,11 @@ const Profile = (params) => {
     setFormData({ ...formData, ingredients: value });
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
+     router.push(`/HealthData/${uid}`)
+
+
     // You can handle form submission here, e.g., save data to a database.
     console.log('Form submitted:', formData);
   };
