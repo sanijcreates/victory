@@ -1,8 +1,9 @@
 'use client'
 import React, { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation'
 
 const Profile = (params) => {
+  const user_uid=params.params.uid
+  const router=useRouter();
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -15,6 +16,7 @@ const Profile = (params) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
   };
 
   const handleIngredientChange = (e) => {
@@ -22,10 +24,17 @@ const Profile = (params) => {
     setFormData({ ...formData, ingredients: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // You can handle form submission here, e.g., save data to a database.
-    console.log('Form submitted:', formData);
+    try {
+      // Add data to Firestore
+      const docRef=await addDoc(collection(db,user_uid),formData)
+      router.replace("/")
+    } catch (error) {
+      console.error('Error adding data to Firestore:', error);
+    }
+  
   };
 
   return (
@@ -43,7 +52,7 @@ const Profile = (params) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md text-black"
               required
             />
           </div>
@@ -57,7 +66,7 @@ const Profile = (params) => {
               name="age"
               value={formData.age}
               onChange={handleChange}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md text-black"
               required
             />
           </div>
@@ -70,7 +79,7 @@ const Profile = (params) => {
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md text-black"
             >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
@@ -88,7 +97,7 @@ const Profile = (params) => {
               name="height"
               value={formData.height}
               onChange={handleChange}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md text-black"
               required
             />
           </div>
@@ -102,7 +111,7 @@ const Profile = (params) => {
               name="weight"
               value={formData.weight}
               onChange={handleChange}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md text-black"
               required
             />
           </div>
@@ -116,7 +125,7 @@ const Profile = (params) => {
               name="ingredients"
               value={formData.ingredients}
               onChange={handleIngredientChange}
-              className="w-full p-2 border rounded-md"
+              className="w-full p-2 border rounded-md text-black"
             />
           </div>
           <div className="mb-4">
