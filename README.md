@@ -27,7 +27,7 @@ And that's where HealthyEats can be important. It acts as a bridge between your 
 
 ## Demo
 
-[Include a link to a live demo of your project if available.]
+https://www.youtube.com/watch?v=c2CBz8MlhtI&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F
 
 ## Screenshots
 
@@ -35,7 +35,7 @@ And that's where HealthyEats can be important. It acts as a bridge between your 
 
 ## Technologies Used
 
-- Next.js, Firebase, MongoDB, Tailwind CSS
+- Next.js, Firebase, MongoDB, Tailwind CSS, LLM
 
 ## Features
 
