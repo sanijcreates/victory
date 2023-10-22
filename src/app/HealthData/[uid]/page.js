@@ -12,6 +12,7 @@ function HealthPage() {
     const [energy, setEnergy] = useState('')
     const [steps, setSteps] = useState('')
     const [cal, setCal] = useState('')
+    const [sleep, setSleep] = useState('')
 
 
     const [user,setUser]=useState();
@@ -24,11 +25,12 @@ function HealthPage() {
         const response = await axios.get("http://localhost:3000/api/mongo")
         setIsLoading(false)
         const data = response.data.data[0]
+        const data1 = response.data.data1[0]
         setHeartRate(response.data.data[0].heart_rate_data.summary.avg_hr_bpm)
         setEnergy(data.energy_data.energy_kilojoules)
         setSteps(data.distance_data.summary.steps)
         setCal(data.calories_data.net_activity_calories)
-        
+        setSleep(data1.sleep_durations_data.other.duration_in_bed_seconds)
     })
 
     const fetchUserData=useCallback(async(uid)=>{
@@ -53,11 +55,6 @@ function HealthPage() {
             setUser(null);
           }
         });
-        
-
-
-
-    
         // Unsubscribe the listener when the component unmounts
         return () => {
           unsubscribe();
@@ -74,19 +71,23 @@ function HealthPage() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="border p-4 rounded-lg">
         <h2 className="text-xl font-semibold mb-2">Heart Rate</h2>
-        <p className="text-gray-600">{heartRate}</p>
+        <p className="text-gray-600">{heartRate + " BPM"}</p>
       </div>
       <div className="border p-4 rounded-lg">
         <h2 className="text-xl font-semibold mb-2">Energy</h2>
-        <p className="text-gray-600">{energy}</p>
+        <p className="text-gray-600">{energy + " J"}</p>
       </div>
       <div className="border p-4 rounded-lg">
         <h2 className="text-xl font-semibold mb-2">Steps</h2>
         <p className="text-gray-600">{steps}</p>
       </div>
-      <div className="border p-4 rounded-lg">
+      <div className="border p-4 rounded-lg ">
         <h2 className="text-xl font-semibold mb-2">Net Activity Calories</h2>
         <p className="text-gray-600">{cal}</p>
+      </div>
+      <div className="border p-4 rounded-lg md:col-span-2">
+        <h2 className="text-xl font-semibold mb-2 ">Sleep Efficiency</h2>
+        <p className="text-gray-600">{Math.floor(sleep / 60 / 60) + " hours"}</p>
       </div>
     </div>
     <button className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
