@@ -17,7 +17,6 @@ And that's where HealthyEats can be important. It acts as a bridge between your 
   - [What problem are we solving?](#what-problem-are-we-solving?)
   - [Table of Contents](#table-of-contents)
   - [Demo](#demo)
-  - [Screenshots](#screenshots)
   - [Technologies Used](#technologies-used)
   - [Features](#features)
   - [Getting Started](#getting-started)
@@ -28,10 +27,6 @@ And that's where HealthyEats can be important. It acts as a bridge between your 
 ## Demo
 
 https://www.youtube.com/watch?v=c2CBz8MlhtI&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F
-
-## Screenshots
-
-[Add screenshots or images of your project here. You can use a section like this to provide visual context.]
 
 ## Technologies Used
 
