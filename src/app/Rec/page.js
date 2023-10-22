@@ -54,9 +54,29 @@ function Page(props) {
   console.log(searchParams.get('steps'));
   console.log(searchParams.get('uid'));
     return (// Inside your sign-up component
-    <div className="flex justify-center items-center h-screen">
-        <h1>as</h1>
+    <div className="min-h-screen bg-blue-100">
+    <div className="p-4">
+        <div className="bg-blue-100 rounded-lg p-4">
+            <h1 className="text-2xl font-semibold mb-12 space-y-12">
+                            What does HealthyEat say about your health statistics?
+            </h1>
+            <div className="flex flex-col space-y-10">
+                <div className="flex justify-start">
+                    <div className="bg-white text-gray-800 p-4 rounded-tr-xl  max-w-xl rounded-br-lg rounded-bl-lg">
+                        {prompt}
+                    </div>
+                </div>
+                <div className="flex justify-start">
+                    <div className="bg-white text-gray-800 p-4 rounded-tr-xl max-w-xl  rounded-br-lg rounded-bl-lg">
+                         {prompt}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
     );
 }
 
