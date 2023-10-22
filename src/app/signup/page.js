@@ -20,7 +20,8 @@ function Page() {
             event.preventDefault()
             createUserWithEmailAndPassword(auth,email,password).then((userCredential)=>{
                 const user=userCredential.user;
-                    console.log("SignUp Successfully!")
+                const uid = user.uid
+                router.push(`/profile/${uid}`)   
             }).catch(err=>{
                 console.log(err)
                 const errorCode=err.code;
