@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Name
+
+HealthyEats
+
+## Description
+
+HealthyEats is a personalized health and fitness recommendation system. This is an innovative project developed during the Hack Harvard Hackathon 2023, focused on the "Health and Fitness" track. Leveraging the Terra API for data generation, this project is designed to empower users to make informed decisions about their health and well-being. 
+
+# What problem are we solving?
+Picture this: You wake up in the morning, rush to get ready for work, hastily grab a quick breakfast, and then, just like that, you're off to face the world. You're so engrossed in meetings, deadlines, and responsibilities that the state of your body becomes an afterthought. We're all guilty of this at some point. The days blur into weeks, the weeks into months, and before we know it, we've neglected our own well-being, not realizing that our bodies are sending us silent signals that often go unnoticed.
+And that's where HealthyEats can be important. It acts as a bridge between your busy life and your health. It provides insights into your body's state and suggests ways to improve it. 
+
+## Table of Contents
+
+- [Project Name](#project-name)
+  - [Description](#description)
+  - [What problem are we solving?](#what-problem-are-we-solving?)
+  - [Table of Contents](#table-of-contents)
+  - [Demo](#demo)
+  - [Screenshots](#screenshots)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Team Members](#team-members)
+
+## Demo
+
+[Include a link to a live demo of your project if available.]
+
+## Screenshots
+
+[Add screenshots or images of your project here. You can use a section like this to provide visual context.]
+
+## Technologies Used
+
+- Next.js, Firebase, MongoDB, Tailwind CSS
+
+## Features
+
+[x] User Profiling: Allow users to input their personal details, including height, weight, and dietary preferences.
+[x] Terra API Data Collection: Collects health data, such as sleep patterns, calorie consumption, energy levels, and daily step count.
+[x] Data Analysis: Utilize Large Language Memory (LLM) models to analyze user data and provide personalized health insights.
+[x] Personalized Recommendations: Generate actionable recommendations based on the user's unique health and fitness metrics, promoting a healthier lifestyle.
+[x] User-Friendly Interface: Create an intuitive and easy-to-use interface for a seamless user experience.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Node.js: Make sure you have Node.js installed on your system. You can download it from nodejs.org.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+MongoDB: You need to have a MongoDB instance running. You can set up a local MongoDB server or use a cloud-based service like MongoDB Atlas.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Firebase: Create a Firebase project and obtain the necessary configuration details. You can set up Firebase by following the instructions on the Firebase website
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Installation
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Team members
+Sanij Shrestha - CS major @ Gettysburg College (https://sanijshrestha.vercel.app/)
+Prabesh Bista - CS major @ Gettysburg College (http://prabeshbista.com.np/)
+Oshan Maharjan - CS major @ Northern Kentucky University (https://www.linkedin.com/in/oshan-maharjan/)
