@@ -4,11 +4,14 @@ import HealthPage from "./HealthData/[uid]/page";
 import { useState,useEffect } from "react";
 import Link from "next/link";
 
+
+
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    document.title="Healthy Eats"
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       setIsLoading(true)
       if (authUser) {
