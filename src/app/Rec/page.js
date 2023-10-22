@@ -20,6 +20,7 @@ function Page(props) {
   const steps = searchParams.get('steps')
 
   let prompt = ""
+  let ques = `Based on the data I have, your average sleep hours is ${Math.floor(sleep/3600)}, you walk ${steps} steps on average, your average net calories is ${cal}, and your average heart rate is ${heartRate} BPM. Here are all advises that HealthyEat suggests you to follow to have a better and healthy lifestyle:`
 
   const fetchRecommendation=useCallback(async(prompt)=>{
     const response=await axios.post("http://localhost:3000/api/recommendations",{"prompt":prompt});
@@ -65,12 +66,13 @@ function Page(props) {
             <div className="flex flex-col space-y-10">
                 <div className="flex justify-start">
                     <div className="bg-white text-gray-800 p-4 rounded-tr-xl  max-w-xl rounded-br-lg rounded-bl-lg">
-                        {prompt}
+                        {ques}
                     </div>
                 </div>
                 <div className="flex justify-start">
-                    <div className="bg-white text-gray-800 p-4 rounded-tr-xl max-w-xl  rounded-br-lg rounded-bl-lg">
-                         {prompt}
+                    <div className="bg-white text-xl font-sans text-gray-800 p-4 rounded-tr-xl max-w-xl  rounded-br-lg rounded-bl-lg whitespace-pre-line">
+                         {result?result:
+                         <h1 className=' animate-pulse'>Loading.....</h1>}
                     </div>
                 </div>
             </div>
