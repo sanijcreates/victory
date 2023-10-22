@@ -9,6 +9,7 @@ import axios from 'axios';
 
 
 function Page(props) {
+
   const searchParams = useSearchParams()
   const [food, setFood] = useState('')
   const [result,setResult]=useState("")
@@ -54,13 +55,32 @@ function Page(props) {
     fetchRecommendation(prompt)
     setFood(data[0].ingredients)
   })
-
-
-  return (// Inside your sign-up component
-    <div className="flex justify-center items-center h-screen">
-      {result.length==0?<div className='inline-block h-[100px] w-[100px] animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]'></div>:<div className=' whitespace-pre-line'>{result}</div>}
+    return (// Inside your sign-up component
+    <div className="min-h-screen bg-blue-100">
+    <div className="p-4">
+        <div className="bg-blue-100 rounded-lg p-4">
+            <h1 className="text-2xl font-semibold mb-12 space-y-12">
+                            What does HealthyEat say about your health statistics?
+            </h1>
+            <div className="flex flex-col space-y-10">
+                <div className="flex justify-start">
+                    <div className="bg-white text-gray-800 p-4 rounded-tr-xl  max-w-xl rounded-br-lg rounded-bl-lg">
+                        {prompt}
+                    </div>
+                </div>
+                <div className="flex justify-start">
+                    <div className="bg-white text-gray-800 p-4 rounded-tr-xl max-w-xl  rounded-br-lg rounded-bl-lg">
+                         {prompt}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  );
+</div>
+
+
+    );
+
 }
 
 export default Page;
