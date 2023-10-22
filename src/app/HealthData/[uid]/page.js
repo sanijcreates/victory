@@ -3,6 +3,9 @@ import axios from "axios";
 import React,{useCallback, useEffect, useState} from "react";
 import { auth,db } from "../../../../firebase";
 import { collection, doc,getDocs } from "firebase/firestore"; 
+import { useRouter } from "next/router";
+import Rec from '../../Rec/page'
+import Link from "next/link";
 
 
 
@@ -14,6 +17,7 @@ function HealthPage() {
     const [cal, setCal] = useState('')
     const [sleep, setSleep] = useState('')
 
+    // const router = useRouter();
 
     const [user,setUser]=useState();
     const [userName,setUserName]=useState();
@@ -42,6 +46,20 @@ function HealthPage() {
       }));
       setUserName(data[0].name)
     })
+
+    function handleClick() {
+      // router.push({
+      //   pathname: `/rec`,
+      //   query: {
+      //     heartRate: heartRate,
+      //     energy: energy,
+      //     steps: steps,
+      //     cal: cal,
+      //     sleepEfficiency: Math.floor(sleep / 60 / 60)
+      //   }
+      // });
+    }
+
     useEffect (() => {
         fetchData()
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -90,9 +108,13 @@ function HealthPage() {
         <p className="text-gray-600">{Math.floor(sleep / 60 / 60) + " hours"}</p>
       </div>
     </div>
+    <Link href={{
+    pathname: '/Rec',
+    query: { sleep: sleep, heartRate: heartRate, energy: energy, cal: cal, steps: steps, uid: user },
+  }}>
     <button className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
       What can you do to improve your health?
-    </button>
+    </button></Link>
   </div>
   </div>
       );
