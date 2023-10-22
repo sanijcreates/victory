@@ -11,6 +11,7 @@
   "dependencies": {
     "@tryterra/terra-ui": "^0.1.0",
     "axios": "^1.5.1",
+    "express": "^4.18.2",
     "firebase": "^10.5.0",
     "firebase-admin": "^11.11.0",
     "i": "^0.3.7",

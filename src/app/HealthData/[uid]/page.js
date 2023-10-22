@@ -104,7 +104,7 @@ function HealthPage() {
         <p className="text-gray-600">{cal}</p>
       </div>
       <div className="border p-4 rounded-lg md:col-span-2">
-        <h2 className="text-xl font-semibold mb-2 ">Sleep Efficiency</h2>
+        <h2 className="text-xl font-semibold mb-2 ">Sleep Time</h2>
         <p className="text-gray-600">{Math.floor(sleep / 60 / 60) + " hours"}</p>
       </div>
     </div>
