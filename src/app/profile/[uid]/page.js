@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { addDoc, collection } from "firebase/firestore";
 import { db } from '../../../../firebase';
+
 const Profile = (params) => {
   const user_uid=params.params.uid
   const [formData, setFormData] = useState({

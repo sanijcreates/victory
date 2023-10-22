@@ -18,7 +18,7 @@ function Page() {
             setPersistence(auth,browserSessionPersistence).then(()=>{
                 console.log("Successfully Logged In!")
                 const uid = user.uid
-                router.push(`/profile/${uid}`)   
+                router.replace(`/`)   
             }).catch(err=>{
                 console.log("Error Setting Persistence",error)
             })
