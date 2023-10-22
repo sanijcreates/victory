@@ -1,7 +1,7 @@
 'use client'
 import React,{useState} from "react";
 import { useRouter } from 'next/navigation'
-import { createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword,setPersistence,browserSessionPersistence} from "firebase/auth";
 import {auth} from "../../../firebase";
 
 function Page() {
@@ -21,7 +21,13 @@ function Page() {
             createUserWithEmailAndPassword(auth,email,password).then((userCredential)=>{
                 const user=userCredential.user;
                 const uid = user.uid
-                router.push(`/profile/${uid}`)   
+                setPersistence(auth,browserSessionPersistence).then(()=>{
+                    console.log("Successfully Logged In!")
+                    const uid = user.uid
+                    router.replace(`/profile/${uid}`)   
+                }).catch(err=>{
+                    console.log("Error Setting Persistence",error)
+                })   
             }).catch(err=>{
                 console.log(err)
                 const errorCode=err.code;
