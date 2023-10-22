@@ -39,11 +39,11 @@ And that's where HealthyEats can be important. It acts as a bridge between your 
 
 ## Features
 
-[x] User Profiling: Allow users to input their personal details, including height, weight, and dietary preferences.
-[x] Terra API Data Collection: Collects health data, such as sleep patterns, calorie consumption, energy levels, and daily step count.
-[x] Data Analysis: Utilize Large Language Memory (LLM) models to analyze user data and provide personalized health insights.
-[x] Personalized Recommendations: Generate actionable recommendations based on the user's unique health and fitness metrics, promoting a healthier lifestyle.
-[x] User-Friendly Interface: Create an intuitive and easy-to-use interface for a seamless user experience.
+- [x] User Profiling: Allow users to input their personal details, including height, weight, and dietary preferences.
+- [x] Terra API Data Collection: Collects health data, such as sleep patterns, calorie consumption, energy levels, and daily step count.
+- [x] Data Analysis: Utilize Large Language Memory (LLM) models to analyze user data and provide personalized health insights.
+- [x] Personalized Recommendations: Generate actionable recommendations based on the user's unique health and fitness metrics, promoting a healthier lifestyle.
+- [x] User-Friendly Interface: Create an intuitive and easy-to-use interface for a seamless user experience.
 
 ## Getting Started
 
